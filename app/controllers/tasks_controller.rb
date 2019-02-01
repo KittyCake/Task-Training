@@ -11,6 +11,7 @@ class TasksController < ApplicationController
   def create
     @task = Task.new(task_params)
     if @task.save
+      flash[:notice] = '新增成功'
       redirect_to tasks_path
     else
       render :new
@@ -21,11 +22,18 @@ class TasksController < ApplicationController
   end
 
   def update
-    @task = Task.update(task_params)
+    if @task.update(task_params)
+      flash[:notice] = '修改成功'
+      redirect_to tasks_path
+    else
+      render :edit
+    end
   end
 
   def destroy
-    @task.destroy
+    @task.destroy!
+    flash[:notice] = '刪除成功'
+    redirect_to tasks_path
   end
 
   private
