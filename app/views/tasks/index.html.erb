@@ -4,11 +4,14 @@
   <tr>
     <th>Title</th>
     <th>Content</th>
+    <th></th>
   </tr>
   <% @tasks.each do |task| %>
     <tr>
       <td><%= task.title %></td>
       <td><%= task.content %></td>
+      <td><%= link_to '修改', edit_task_path(task), class: 'btn btn-warning' %></td>
+      <td><%= link_to '刪除', task_path(task), method: :delete, data: { confirm: "是否確定要刪除？" }, class: 'btn btn-danger' %></td>
     </tr>
   <% end %>
 </table>

@@ -11,6 +11,7 @@ class TasksController < ApplicationController
   def create
     @task = Task.new(task_params)
     if @task.save
+      flash[:notice] = "成功新增任務 #{@task.title}"
       redirect_to tasks_path
     else
       render :new
@@ -21,11 +22,18 @@ class TasksController < ApplicationController
   end
 
   def update
-    @task = Task.update(task_params)
+    if @task.update(task_params)
+      flash[:notice] = "成功修改任務 #{@task.title}"
+      redirect_to tasks_path
+    else
+      render :edit
+    end
   end
 
   def destroy
-    @task.destroy
+    @task.destroy!
+    flash[:notice] = "成功刪除任務 #{@task.title}"
+    redirect_to tasks_path
   end
 
   private
@@ -35,6 +43,6 @@ class TasksController < ApplicationController
   end
 
   def task_params
-    params.require(:task).permit(:title, :content)
+    params.require(:task).permit(:title, :content, :priority, :endtime, :status, :tags, :user_id)
   end
 end
