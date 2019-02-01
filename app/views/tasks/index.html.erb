@@ -4,11 +4,13 @@
   <tr>
     <th>Title</th>
     <th>Content</th>
+    <th></th>
   </tr>
   <% @tasks.each do |task| %>
     <tr>
       <td><%= task.title %></td>
       <td><%= task.content %></td>
+      <td><%= link_to 'Edit', edit_task_path(task), class: 'btn btn-warning' %></td>
     </tr>
   <% end %>
 </table>
