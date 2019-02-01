@@ -1,0 +1,14 @@
+<h1>Tasks</h1>
+<%= link_to 'New Task', new_task_path, class: 'btn btn-primary' %>
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Content</th>
+  </tr>
+  <% @tasks.each do |task| %>
+    <tr>
+      <td><%= task.title %></td>
+      <td><%= task.content %></td>
+    </tr>
+  <% end %>
+</table>
