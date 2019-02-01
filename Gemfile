@@ -9,7 +9,8 @@ gem 'rails', '~> 5.2.2'
 gem 'sqlite3'
 
 gem 'pg'
-gem 'bootstrap'
+gem 'bootstrap-sass', '~> 3.4.0'
+gem 'sassc-rails', '>= 2.0.0'
 gem 'jquery-rails'
 
 # Use Puma as the app server
