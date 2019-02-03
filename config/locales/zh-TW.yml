@@ -25,3 +25,7 @@ zh-TW:
         tags: 標籤
   messages:
     ask-delete: 是否確定要刪除？
+    done-new: 成功新增任務
+    done-edit: 成功修改任務
+    done-delete: 成功刪除任務
+
