@@ -1,0 +1,27 @@
+zh-TW:
+  page:
+    index-title: 我的任務
+    new-title: 新增任務
+    edit-title: 修改任務
+  attributes:
+    new: 新增
+    edit: 修改
+    delete: 刪除
+    back: 返回
+  activerecord:
+    models:
+      user: 用戶
+      task: 任務
+    attributes:
+      user:
+        name: 名字
+        password: 密碼
+      task:
+        title: 標題
+        content: 內容
+        priority: 優先順序
+        endtime: 結束時間
+        status: 狀態
+        tags: 標籤
+  messages:
+    ask-delete: 是否確定要刪除？
