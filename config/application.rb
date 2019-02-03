@@ -11,6 +11,8 @@ module TaskTraining
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.2
 
+    # setup time zone and language locale
+    config.time_zone = 'Taipei'
     config.i18n.default_locale = :'zh-TW'
 
     # Settings in config/environments/* take precedence over those specified here.
