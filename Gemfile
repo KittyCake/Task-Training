@@ -12,6 +12,7 @@ gem 'pg'
 gem 'bootstrap-sass', '~> 3.4.0'
 gem 'sassc-rails', '>= 2.0.0'
 gem 'jquery-rails'
+gem 'travis'
 
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
