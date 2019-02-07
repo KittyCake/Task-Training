@@ -3,6 +3,10 @@
 ## Try it on heroku
 [https://task-training.herokuapp.com](https://task-training.herokuapp.com)
 
+## Framework
+* ruby '2.4.4'
+* gem 'rails', '~> 5.2.2'
+
 ## Set up
 To run this project, download it locally and run:
 ```
