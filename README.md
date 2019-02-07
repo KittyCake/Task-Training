@@ -7,7 +7,7 @@
 To run this project, download it locally and run:
 ```
 bundle install
-rails db::migrate
+rails db:migrate
 rails s
 ```
 And see the result on [http://localhost:3000](http://localhost:3000)
