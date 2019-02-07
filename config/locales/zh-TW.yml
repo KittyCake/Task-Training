@@ -23,6 +23,21 @@ zh-TW:
         endtime: 結束時間
         status: 狀態
         tags: 標籤
+        user: 用戶
+    errors:
+      models:
+        user:
+          attributes:
+            name:
+              blank: 請輸入名字
+        task:
+          attributes:
+            title:
+              blank: 請輸入標題
+            content:
+              blank: 請輸入內容
+            status:
+              blank: 請選擇狀態
   messages:
     ask-delete: 是否確定要刪除？
     done-new: 成功新增任務
