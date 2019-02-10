@@ -17,6 +17,7 @@ zh-TW:
         name: 名字
         password: 密碼
       task:
+        id: 編號
         title: 標題
         content: 內容
         priority: 優先順序
@@ -24,6 +25,7 @@ zh-TW:
         status: 狀態
         tags: 標籤
         user: 用戶
+        created_at: 創建時間
     errors:
       models:
         user:
