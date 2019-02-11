@@ -1,8 +1,15 @@
 <h1><%= link_to "#{ t "page.index-title" }", tasks_path %></h1>
+<!-- search -->
 <%= form_tag(tasks_path, method: :get) do %>
-  <%= text_field_tag :term, params[:term] %>
-  <%= submit_tag 'Search', name: nil %>
+  <%= text_field_tag :search, params[:search] %>
+  <%= submit_tag "#{ t "attributes.search" }", name: nil %>
 <% end %>
+<!-- filter by status -->
+<%= form_tag(tasks_path, method: :get) do %>
+  <%= select :task, :status, options_for_select(%w(待處理 進行中 完成)), {prompt: "#{ t "attributes.filter-status" }"} %>
+  <%= submit_tag "#{ t "attributes.filter" }", name: nil %>
+<% end %>
+<!-- new a task -->
 <%= link_to "#{ t "attributes.new" }", new_task_path, class: 'btn btn-primary' %>
 <table>
   <tr>
@@ -13,7 +20,7 @@
     <th><%= t('activerecord.attributes.task.created_at') %></th>
   </tr>
   <% if @tasks == [] %>
-    <tr><td colspan= '5'>沒有符合的任務</td></tr>
+    <tr><td colspan= '5'><%= t('messages.no-task') %></td></tr>
   <% else %>
     <% @tasks.each do |task| %>
       <tr>
