@@ -1,4 +1,8 @@
-<h1><%= t('page.index-title') %></h1>
+<h1><%= link_to "#{ t "page.index-title" }", tasks_path %></h1>
+<%= form_tag(tasks_path, method: :get) do %>
+  <%= text_field_tag :term, params[:term] %>
+  <%= submit_tag 'Search', name: nil %>
+<% end %>
 <%= link_to "#{ t "attributes.new" }", new_task_path, class: 'btn btn-primary' %>
 <table>
   <tr>
@@ -8,15 +12,19 @@
     <th><%= sortable "endtime", t('activerecord.attributes.task.endtime') %></th>
     <th><%= t('activerecord.attributes.task.created_at') %></th>
   </tr>
-  <% @tasks.each do |task| %>
-    <tr>
-      <td><%= task.id %></td>
-      <td><%= task.title %></td>
-      <td><%= task.content %></td>
-      <td><%= task.endtime.strftime("%Y/%m/%d %H:%M") %></td>
-      <td><%= task.created_at.strftime("%Y/%m/%d %H:%M") %></td>
-      <td><%= link_to "#{ t "attributes.edit" }", edit_task_path(task), class: 'btn btn-warning' %></td>
-      <td><%= link_to "#{ t "attributes.delete" }", task_path(task), method: :delete, data: { confirm: "#{ t "messages.ask-delete" }" }, class: 'btn btn-danger' %></td>
-    </tr>
+  <% if @tasks == [] %>
+    <tr><td colspan= '5'>沒有符合的任務</td></tr>
+  <% else %>
+    <% @tasks.each do |task| %>
+      <tr>
+        <td><%= task.id %></td>
+        <td><%= task.title %></td>
+        <td><%= task.content %></td>
+        <td><%= task.endtime.strftime("%Y/%m/%d %H:%M") %></td>
+        <td><%= task.created_at.strftime("%Y/%m/%d %H:%M") %></td>
+        <td><%= link_to "#{ t "attributes.edit" }", edit_task_path(task), class: 'btn btn-warning' %></td>
+        <td><%= link_to "#{ t "attributes.delete" }", task_path(task), method: :delete, data: { confirm: "#{ t "messages.ask-delete" }" }, class: 'btn btn-danger' %></td>
+      </tr>
+    <% end %>
   <% end %>
 </table>

@@ -3,7 +3,11 @@ class TasksController < ApplicationController
   before_action :set_task, only: [ :edit, :update, :destroy]
   def index
     # @tasks = Task.all.order('created_at DESC')
-    @tasks = Task.all.order(sort_column + ' ' + sort_direction)
+    if params[:term]
+      @tasks = Task.where("title LIKE ? OR content LIKE ?", "%#{params[:term]}", "%#{params[:term]}%")
+    else
+      @tasks = Task.all.order(sort_column + ' ' + sort_direction)
+    end
   end
 
   def new
@@ -45,7 +49,7 @@ class TasksController < ApplicationController
   end
 
   def task_params
-    params.require(:task).permit(:title, :content, :priority, :endtime, :status, :tags, :user_id)
+    params.require(:task).permit(:title, :content, :priority, :endtime, :status, :tags, :user_id, :term)
   end
 
   def sort_column
