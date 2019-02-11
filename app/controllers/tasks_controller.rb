@@ -4,7 +4,7 @@ class TasksController < ApplicationController
   def index
     # @tasks = Task.all.order('created_at DESC')
     if params[:term]
-      @tasks = Task.where("title LIKE ? OR content LIKE ?", "%#{params[:term]}", "%#{params[:term]}%")
+      @tasks = Task.where("LOWER(title) LIKE LOWER('%#{params[:term]}%') OR LOWER(content) LIKE LOWER('%#{params[:term]}%')")
     else
       @tasks = Task.all.order(sort_column + ' ' + sort_direction)
     end
