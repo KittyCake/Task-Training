@@ -28,7 +28,7 @@
     <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3">
       <div class="form-group">
         <%= f.label :priority %>
-        <%= f.text_field :priority, class: 'form-control' %>
+        <%= f.select :priority, %w(高 中 低), class: 'form-control' %>
       </div>
     </div>
   </div>
