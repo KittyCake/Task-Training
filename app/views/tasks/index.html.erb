@@ -1,26 +1,28 @@
 <h1 class = 'text-center'><%= link_to "#{ t "page.index-title" }", tasks_path %></h1>
 
 <div class="container">
-  <div class="row">
-    <div class="col-sm-12 col-md-4">
-      <!-- search -->
-      <%= form_tag(tasks_path, method: :get, class: 'form-inline') do %>
-        <div class="form-group">
-          <%= text_field_tag :search, params[:search], class: 'form-control' %>
-          <%= submit_tag "#{ t "attributes.search" }", name: nil, class: 'btn btn-default' %>
-        </div>
-      <% end %>
+  <div class="flex content-space-between top-bar">
+    <div class="flex-left">
+      <div class="search-bar">
+        <!-- search -->
+        <%= form_tag(tasks_path, method: :get, class: 'form-inline') do %>
+          <div class="form-group">
+            <%= text_field_tag :search, params[:search], class: 'form-control' %>
+            <%= submit_tag "#{ t "attributes.search" }", name: nil, class: 'btn btn-default' %>
+          </div>
+        <% end %>
+      </div>
+      <div class="filter-bar">
+        <!-- filter by status -->
+        <%= form_tag(tasks_path, method: :get, class: 'form-inline') do %>
+          <div class="form-group">
+            <%= select :task, :status, options_for_select(%w(待處理 進行中 完成)), {prompt: "#{ t "attributes.filter-status" }"}, class: 'form-control' %>
+            <%= submit_tag "#{ t "attributes.filter" }", name: nil, class: 'btn btn-default' %>
+          </div>
+        <% end %>
+      </div>
     </div>
-    <div class="col-sm-12 col-md-4">
-      <!-- filter by status -->
-      <%= form_tag(tasks_path, method: :get, class: 'form-inline') do %>
-        <div class="form-group">
-          <%= select :task, :status, options_for_select(%w(待處理 進行中 完成)), {prompt: "#{ t "attributes.filter-status" }"}, class: 'form-control' %>
-          <%= submit_tag "#{ t "attributes.filter" }", name: nil, class: 'btn btn-default' %>
-        </div>
-      <% end %>
-    </div>
-    <div class="col-sm-12 col-md-4">
+    <div class="flex-right">
       <!-- new a task -->
       <%= link_to "#{ t "attributes.new" }", new_task_path, class: 'btn btn-primary' %>
     </div>

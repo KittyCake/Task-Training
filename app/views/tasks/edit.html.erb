@@ -11,7 +11,7 @@
       </ul>
     <% end %>
     <div class="row">
-      <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3">
+      <div class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3">
         <div class="form-group">
           <%= f.label :title %>
           <%= f.text_field :title, class: 'form-control' %>
@@ -19,7 +19,7 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3">
+      <div class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3">
         <div class="form-group">
           <%= f.label :content %>
           <%= f.text_area :content, class: 'form-control' %>
@@ -27,7 +27,7 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3">
+      <div class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3">
         <div class="form-group">
           <%= f.label :priority %>
           <%= f.select :priority, %w(高 中 低), {}, class: 'form-control' %>
@@ -35,7 +35,7 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3">
+      <div class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3">
         <div class="form-group form-inline">
           <%= f.label :endtime %>
           <%= f.datetime_select :endtime, {start_year: Time.current.year, default: 1.hour.from_now}, class: 'form-control' %>
@@ -43,7 +43,7 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3">
+      <div class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3">
         <div class="form-group">
           <%= f.label :status %>
           <%= f.select :status, %w(待處理 進行中 完成), {}, class: 'form-control' %>
@@ -51,7 +51,7 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3">
+      <div class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3">
         <div class="form-group">
           <%= f.label :tags %>
           <%= f.text_area :tags, class: 'form-control' %>
@@ -59,7 +59,7 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3">
+      <div class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3">
         <div class="form-group">
           <%= f.label :user_id %>
           <%= f.number_field :user_id, class: 'form-control' %>

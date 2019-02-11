@@ -2,3 +2,23 @@
   display: flex;
   justify-content: center;
 }
+
+.top-bar {
+  margin: 30px 0;
+  .search-bar {
+    margin-right: 20px;
+  }
+}
+
+.flex {
+  display: flex;
+}
+
+.content-space-between {
+  justify-content: space-between;
+}
+
+.flex-left {
+  flex: 1 0 auto;
+  display: flex;
+}
