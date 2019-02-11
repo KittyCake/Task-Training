@@ -13,6 +13,7 @@ gem 'sassc-rails', '>= 2.0.0'
 gem 'jquery-rails'
 gem 'travis'
 gem "rails-i18n"
+gem 'kaminari'
 
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
