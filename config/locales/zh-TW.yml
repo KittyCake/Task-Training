@@ -8,6 +8,9 @@ zh-TW:
     edit: 修改
     delete: 刪除
     back: 返回
+    search: 搜尋
+    filter: 篩選
+    filter-status: 選擇狀態
   activerecord:
     models:
       user: 用戶
@@ -17,6 +20,7 @@ zh-TW:
         name: 名字
         password: 密碼
       task:
+        id: 編號
         title: 標題
         content: 內容
         priority: 優先順序
@@ -24,6 +28,7 @@ zh-TW:
         status: 狀態
         tags: 標籤
         user: 用戶
+        created_at: 創建時間
     errors:
       models:
         user:
@@ -43,4 +48,5 @@ zh-TW:
     done-new: 成功新增任務
     done-edit: 成功修改任務
     done-delete: 成功刪除任務
+    no-task: 沒有符合的任務
 

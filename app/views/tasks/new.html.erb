@@ -36,7 +36,7 @@
     <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3">
       <div class="form-group">
         <%= f.label :endtime %>
-        <%= f.time_select :endtime, class: 'form-control' %>
+        <%= f.datetime_select :endtime, start_year: Time.current.year, default: 1.hour.from_now, class: 'form-control' %>
       </div>
     </div>
   </div>
@@ -44,7 +44,7 @@
     <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3">
       <div class="form-group">
         <%= f.label :status %>
-        <%= f.text_field :status, class: 'form-control' %>
+        <%= f.select :status, %w(待處理 進行中 完成), class: 'form-control' %>
       </div>
     </div>
   </div>

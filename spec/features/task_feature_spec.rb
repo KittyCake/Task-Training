@@ -1,4 +1,4 @@
-# 可以設定任務的結束時間
+
 # 可以設定任務的優先順序
 # 可以為任務加上分類標籤
 # 可以管理各種狀態（待處理、進行中、完成）
@@ -7,26 +7,16 @@ require 'rails_helper'
 feature 'Task' do
   # 可以讓使用者登入，並只能看見自己建立的任務
   describe 'index task' do
+    before { log_in create (:user) }
     let!(:task) { create :task, title: 'First created', content: 'This is first one.' }
     let!(:task) { create :task, title: 'Second created', content: 'This is second one.' }
     let!(:task) { create :task, title: 'Third created', content: 'This is third one.' }
 
     context 'user is not logged in' do
-      @tasks = Task.all.order('created_at DESC')
 
-      scenario 'show tasks of current user' do
-        visit tasks_path
-        titles = page.all('tr td:nth-child(2)')
-        puts titles[0]
-        puts @tasks[0]
-        titles[0].should have_content(@tasks[0].title)
-        titles[1].should have_content(@tasks[1].title)
-        titles[-1].should have_content(@tasks[-1].title)
-      end
     end
 
     context 'user is logged in' do
-      before { log_in create(:user) }
       @tasks = Task.all.order('created_at DESC')
 
       scenario 'show tasks of current user' do
@@ -57,6 +47,8 @@ feature 'Task' do
           visit new_task_path
           fill_in 'title', with: 'Homework'
           fill_in 'content', with: 'Homework for summer vacation.'
+          # 可以設定任務的結束時間
+          fill_in 'endtime', with: DateTime.current
           fill_in 'priority', with: 'important'
           fill_in 'status', with: 'finished'
           fill_in 'user', with: '1'
