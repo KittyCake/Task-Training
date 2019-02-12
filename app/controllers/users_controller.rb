@@ -33,7 +33,9 @@ class UsersController < ApplicationController
   end
 
   def destroy
-
+    @user.destroy!
+    flash[:notice] = "#{t "messages.done-delete"} #{@user.name}"
+    redirect_to users_path
   end
 
   private
