@@ -6,5 +6,5 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   get '/logout', to: 'sessions#destroy'
 
-  resources :tasks, only: [ :index, :new, :create, :edit, :update, :destroy ]
+  resources :tasks, only: [ :new, :create, :edit, :update, :destroy ]
 end

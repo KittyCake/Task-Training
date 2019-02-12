@@ -20,7 +20,7 @@ feature 'Task' do
       @tasks = Task.all.order('created_at DESC')
 
       scenario 'show tasks of current user' do
-        visit tasks_path
+        visit root_path
         titles = page.all('tr td:nth-child(2)')
         titles[0].should have_content(@tasks[0].title)
         titles[1].should have_content(@tasks[1].title)

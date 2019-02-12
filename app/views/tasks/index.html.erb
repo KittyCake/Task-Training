@@ -1,12 +1,12 @@
 <% @title = "#{ t "page.index-title" }" %>
-<h1 class = 'text-center'><%= link_to "#{ @title }", tasks_path %></h1>
+<h1 class = 'text-center'><%= link_to "#{ @title }", root_path %></h1>
 
 <div class="container">
   <div class="flex content-space-between top-bar">
     <div class="flex-left">
       <div class="search-bar">
         <!-- search -->
-        <%= form_tag(tasks_path, method: :get, class: 'form-inline') do %>
+        <%= form_tag(root_path, method: :get, class: 'form-inline') do %>
           <div class="form-group">
             <%= text_field_tag :search, params[:search], class: 'form-control' %>
             <%= submit_tag "#{ t "attributes.search" }", name: nil, class: 'btn btn-default' %>
@@ -15,7 +15,7 @@
       </div>
       <div class="filter-bar">
         <!-- filter by status -->
-        <%= form_tag(tasks_path, method: :get, class: 'form-inline') do %>
+        <%= form_tag(root_path, method: :get, class: 'form-inline') do %>
           <div class="form-group">
             <%= select :task, :status, options_for_select(%w(待處理 進行中 完成)), {prompt: "#{ t "attributes.filter-status" }"}, class: 'form-control' %>
             <%= submit_tag "#{ t "attributes.filter" }", name: nil, class: 'btn btn-default' %>
