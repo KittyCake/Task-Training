@@ -17,6 +17,7 @@ zh-TW:
     search: 搜尋
     filter: 篩選
     filter-status: 選擇狀態
+    tasks-count: 任務數量
   activerecord:
     models:
       user: 用戶
