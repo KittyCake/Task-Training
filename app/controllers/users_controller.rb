@@ -2,7 +2,12 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:edit, :update, :destroy, :showtasks]
 
   def index
-    @users = User.all.page(params[:page])
+    if current_user.admin?
+      @users = User.all.page(params[:page])
+    else
+      flash[:notice] = "#{t "messages.not-admin"}"
+      redirect_to root_path
+    end
   end
 
   def new

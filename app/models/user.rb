@@ -3,4 +3,9 @@ class User < ApplicationRecord
 
   validates :name, presence: true, uniqueness: true, length: { in: 4..15 }
   validates :password, presence: true, length: { in: 6..12 }
+  validates :admin, presence: true
+
+  def self.admin?
+    User.find(:id).admin
+  end
 end

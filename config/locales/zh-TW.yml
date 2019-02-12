@@ -64,6 +64,7 @@ zh-TW:
     no-task: 沒有符合的任務
     false-login: 名稱或密碼不正確
     new-user: 成功新增用戶
+    not-admin: 您沒有管理者權限
 
 
 
