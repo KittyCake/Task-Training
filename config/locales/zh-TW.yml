@@ -4,6 +4,9 @@ zh-TW:
     index-title: 我的任務
     new-title: 新增任務
     edit-title: 修改任務
+    user-index-title: 使用者列表
+    user-new-title: 新增使用者
+    user-edit-title: 修改使用者
   attributes:
     login: 登入
     logout: 登出
@@ -20,8 +23,10 @@ zh-TW:
       task: 任務
     attributes:
       user:
+        id: 編號
         name: 名稱
         password: 密碼
+        created_at: 創建時間
       task:
         id: 編號
         title: 標題
@@ -53,6 +58,7 @@ zh-TW:
     done-delete: 成功刪除任務
     no-task: 沒有符合的任務
     false-login: 名稱或密碼不正確
+    new-user: 成功新增用戶
 
 
 
