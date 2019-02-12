@@ -1,0 +1,7 @@
+<div class="container">
+  <div class="flex flex-end">
+    <% if current_user %>
+      <%= link_to "#{t "attributes.logout"}", logout_path, class: 'btn btn-danger logout' %>
+    <% end %>
+  </div>
+</div>

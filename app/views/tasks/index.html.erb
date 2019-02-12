@@ -1,4 +1,5 @@
-<h1 class = 'text-center'><%= link_to "#{ t "page.index-title" }", tasks_path %></h1>
+<% @title = "#{ t "page.index-title" }" %>
+<h1 class = 'text-center'><%= link_to "#{ @title }", tasks_path %></h1>
 
 <div class="container">
   <div class="flex content-space-between top-bar">

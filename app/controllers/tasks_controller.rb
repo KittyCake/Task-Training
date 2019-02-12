@@ -5,12 +5,12 @@ class TasksController < ApplicationController
     # @tasks = Task.all.order('created_at DESC')
     # byebug
     if params[:search]
-      @tasks = Task.where("LOWER(title) LIKE LOWER('%#{params[:search]}%') OR LOWER(content) LIKE LOWER('%#{params[:search]}%')").page(params[:page])
+      @tasks = User.find(current_user.id).tasks.where("LOWER(title) LIKE LOWER('%#{params[:search]}%') OR LOWER(content) LIKE LOWER('%#{params[:search]}%')").page(params[:page])
     elsif params[:task]
-      @tasks = Task.where(status: params[:task][:status]).page(params[:page])
+      @tasks = User.find(current_user.id).tasks.where(status: params[:task][:status]).page(params[:page])
       # byebug
     else
-      @tasks = Task.all.order(sort_column + ' ' + sort_direction).page(params[:page])
+      @tasks = User.find(current_user.id).tasks.all.order(sort_column + ' ' + sort_direction).page(params[:page])
     end
   end
 

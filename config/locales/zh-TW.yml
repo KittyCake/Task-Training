@@ -1,9 +1,12 @@
 zh-TW:
   page:
+    login-title: 登入
     index-title: 我的任務
     new-title: 新增任務
     edit-title: 修改任務
   attributes:
+    login: 登入
+    logout: 登出
     new: 新增
     edit: 修改
     delete: 刪除
@@ -17,7 +20,7 @@ zh-TW:
       task: 任務
     attributes:
       user:
-        name: 名字
+        name: 名稱
         password: 密碼
       task:
         id: 編號
@@ -49,4 +52,7 @@ zh-TW:
     done-edit: 成功修改任務
     done-delete: 成功刪除任務
     no-task: 沒有符合的任務
+    false-login: 名稱或密碼不正確
+
+
 

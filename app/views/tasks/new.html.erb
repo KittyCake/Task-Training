@@ -1,4 +1,6 @@
-<h1 class="text-center"><%= t('page.new-title') %></h1>
+<% @title = "#{ t "page.new-title" }" %>
+
+<h1 class="text-center"><%= @title %></h1>
 
 <div class="container">
   <%= link_to "#{ t "attributes.back" }", tasks_path, class: 'btn' %>
