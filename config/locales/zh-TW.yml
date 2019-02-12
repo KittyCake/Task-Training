@@ -1,4 +1,6 @@
 zh-TW:
+  "true": 是
+  "false": 否
   page:
     login-title: 登入
     index-title: 我的任務
@@ -28,6 +30,7 @@ zh-TW:
         id: 編號
         name: 名稱
         password: 密碼
+        admin: 管理者
         created_at: 創建時間
       task:
         id: 編號
