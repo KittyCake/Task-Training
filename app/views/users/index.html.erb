@@ -1,5 +1,5 @@
 <% @title = "#{ t "page.user-index-title" }" %>
-<h1 class = 'text-center'><%= link_to "#{ @title }", root_path %></h1>
+<h1 class = 'text-center'><%= link_to "#{ @title }", users_path %></h1>
 
 <div class="container">
   <div class="flex flex-end top-bar">
@@ -19,6 +19,7 @@
       <th><%= t('attributes.tasks-count') %></th>
       <th></th>
       <th></th>
+      <th></th>
     </tr>
 
     <!-- show users one by one -->
@@ -29,6 +30,7 @@
           <td><%= user.password %></td>
           <td><%= user.created_at.strftime("%Y/%m/%d %H:%M") %></td>
           <td><%= user.tasks.count %></td>
+          <td><%= link_to "#{ t "attributes.check" }", user_path(user), class: 'btn btn-primary' %></td>
           <td><%= link_to "#{ t "attributes.edit" }", edit_user_path(user), class: 'btn btn-warning' %></td>
           <td><%= link_to "#{ t "attributes.delete" }", user_path(user), method: :delete, data: { confirm: "#{ t "messages.ask-delete" }" }, class: 'btn btn-danger' %></td>
         </tr>

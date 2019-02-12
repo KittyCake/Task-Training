@@ -4,7 +4,7 @@ zh-TW:
     index-title: 我的任務
     new-title: 新增任務
     edit-title: 修改任務
-    user-index-title: 使用者列表
+    user-index-title: 使用者管理
     user-new-title: 新增使用者
     user-edit-title: 修改使用者
   attributes:
@@ -16,6 +16,7 @@ zh-TW:
     back: 返回
     search: 搜尋
     filter: 篩選
+    check: 查看
     filter-status: 選擇狀態
     tasks-count: 任務數量
   activerecord:

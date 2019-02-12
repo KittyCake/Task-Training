@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   resources :tasks, only: [ :new, :create, :edit, :update, :destroy ]
 
   resources :users, path: 'admin', except: [ :show ]
+  get '/admin/:id', to: 'users#showtasks'
 end

@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:edit, :update, :destroy]
+  before_action :set_user, only: [:edit, :update, :destroy, :showtasks]
 
   def index
     @users = User.all.page(params[:page])
@@ -36,6 +36,10 @@ class UsersController < ApplicationController
     @user.destroy!
     flash[:notice] = "#{t "messages.done-delete"} #{@user.name}"
     redirect_to users_path
+  end
+
+  def showtasks
+    @tasks = @user.tasks.page(params[:page])
   end
 
   private

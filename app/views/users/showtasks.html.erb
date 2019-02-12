@@ -1,0 +1,42 @@
+<% @title = @user.name %>
+<h1 class = 'text-center'><%= @title  %></h1>
+
+<div class="container">
+  <%= link_to "#{ t "attributes.back" }", users_path, class: 'btn' %>
+
+  <!-- show tasks -->
+  <table class="table">
+    <!-- table title -->
+    <tr>
+      <th><%= t('activerecord.attributes.task.id') %></th>
+      <th><%= t('activerecord.attributes.task.title') %></th>
+      <th><%= t('activerecord.attributes.task.content') %></th>
+      <th><%= t('activerecord.attributes.task.priority') %></th>
+      <th><%= t('activerecord.attributes.task.endtime') %></th>
+      <th><%= t('activerecord.attributes.task.status') %></th>
+      <th><%= t('activerecord.attributes.task.created_at') %></th>
+    </tr>
+    <!-- if there no task -->
+    <% if @tasks == [] %>
+      <tr><td colspan= '5'><%= t('messages.no-task') %></td></tr>
+    <% else %>
+    <!-- show tasks one by one -->
+      <% @tasks.each do |task| %>
+        <tr>
+          <td><%= task.id %></td>
+          <td><%= task.title %></td>
+          <td><%= task.content %></td>
+          <td><%= task.priority %></td>
+          <td><%= task.endtime.strftime("%Y/%m/%d %H:%M") %></td>
+          <td><%= task.status %></td>
+          <td><%= task.created_at.strftime("%Y/%m/%d %H:%M") %></td>
+        </tr>
+      <% end %>
+    <% end %>
+  </table>
+  <div class="row justify-content-around">
+    <div class="flex-center">
+      <%= paginate @tasks %>
+    </div>
+  </div>
+</div>
