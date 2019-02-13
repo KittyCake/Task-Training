@@ -1,2 +1,18 @@
-<h1>Errors#internal_server_error</h1>
-<p>Find me in app/views/errors/internal_server_error.html.erb</p>
+<% @title = "We're sorry, but something went wrong (500)" %>
+
+<div class="error-wrapper flex">
+  <div class="error-content flex">
+    <div class="error-message">
+      <div class="flex content-space-between">
+        <h1 class="error-shock"><%= t('error-page.attributes.oops') %></h1>
+        <h1 class="error-title"><%= t('error-page.internal-server-error.went-wrong') %></h1>
+      </div>
+      <h3 class="error-description"><%= t('error-page.attributes.sent-back') %></h3>
+
+     <%= link_to "#{t "error-page.attributes.back"}", root_path, class: "btn btn-primary error-link" %>
+    </div>
+    <div class="error-img">
+      <%= image_tag 'cry.jpeg' %>
+    </div>
+  </div>
+</div>
