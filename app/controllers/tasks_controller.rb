@@ -4,13 +4,15 @@ class TasksController < ApplicationController
   def index
     # @tasks = Task.all.order('created_at DESC')
     # byebug
-    if params[:search]
-      @tasks = Task.where("LOWER(title) LIKE LOWER('%#{params[:search]}%') OR LOWER(content) LIKE LOWER('%#{params[:search]}%')")
+    if current_user.nil?
+      redirect_to login_path
+    elsif params[:search]
+      @tasks = User.find(current_user.id).tasks.where("LOWER(title) LIKE LOWER('%#{params[:search]}%') OR LOWER(content) LIKE LOWER('%#{params[:search]}%')").page(params[:page])
     elsif params[:task]
-      @tasks = Task.where(status: params[:task][:status])
+      @tasks = User.find(current_user.id).tasks.where(status: params[:task][:status]).page(params[:page])
       # byebug
     else
-      @tasks = Task.all.order(sort_column + ' ' + sort_direction)
+      @tasks = User.find(current_user.id).tasks.all.order(sort_column + ' ' + sort_direction).page(params[:page])
     end
   end
 
@@ -20,9 +22,10 @@ class TasksController < ApplicationController
 
   def create
     @task = Task.new(task_params)
+    @task.user_id = current_user.id
     if @task.save
       flash[:notice] = "#{t "messages.done-new"} #{@task.title}"
-      redirect_to tasks_path
+      redirect_to root_path
     else
       render :new
     end
@@ -34,7 +37,7 @@ class TasksController < ApplicationController
   def update
     if @task.update(task_params)
       flash[:notice] = "#{t "messages.done-edit"} #{@task.title}"
-      redirect_to tasks_path
+      redirect_to root_path
     else
       render :edit
     end
@@ -43,7 +46,7 @@ class TasksController < ApplicationController
   def destroy
     @task.destroy!
     flash[:notice] = "#{t "messages.done-delete"} #{@task.title}"
-    redirect_to tasks_path
+    redirect_to root_path
   end
 
   private
@@ -53,7 +56,7 @@ class TasksController < ApplicationController
   end
 
   def task_params
-    params.require(:task).permit(:title, :content, :priority, :endtime, :status, :tags, :user_id, :search)
+    params.require(:task).permit(:title, :content, :priority, :endtime, :status, :tags, :search)
   end
 
   def sort_column

@@ -1,0 +1,27 @@
+<% @title = "#{ t "page.login-title" }" %>
+
+<h1 class="text-center"><%= @title %></h1>
+
+<div class="container">
+  <%= form_for(:session, url: login_path) do |f| %>
+
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3">
+        <div class="form-group">
+          <%= f.label :name, "#{t "activerecord.attributes.user.name"}" %>
+          <%= f.text_field :name, class: 'form-control' %>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3">
+        <div class="form-group">
+          <%= f.label :password, "#{t "activerecord.attributes.user.password"}" %>
+          <%= f.text_field :password, class: 'form-control' %>
+        </div>
+      </div>
+    </div>
+
+    <%= f.submit "#{ t "attributes.login" }", class: 'btn btn-primary center-block' %>
+  <% end %>
+</div>

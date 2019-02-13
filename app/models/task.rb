@@ -1,10 +1,12 @@
 class Task < ApplicationRecord
   belongs_to :user
+  paginates_per 10
   STATUSES = %w(待處理 進行中 完成)
+  PRIORITIES = %w(高 中 低)
 
   validates :title, presence: true, length: { in: 1..20 }
   validates :content, presence: true, length: { in: 1..60 }
-  validates :priority, inclusion: { in: %w(輕鬆 一般 重要) }
+  validates :priority, inclusion: { in: PRIORITIES }
   validate :endtime_cannot_be_in_the_past
   validates :status, presence: true, inclusion: { in: STATUSES }
 

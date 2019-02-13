@@ -1,0 +1,8 @@
+<div class="container">
+  <div class="flex flex-end">
+    <%= link_to "#{ t "page.user-index-title" }", users_path, class: 'btn btn-warning nav-button' %>
+    <% if current_user %>
+      <%= link_to "#{t "attributes.logout"}", logout_path, class: 'btn btn-danger nav-button' %>
+    <% end %>
+  </div>
+</div>
