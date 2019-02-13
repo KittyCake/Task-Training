@@ -1,0 +1,18 @@
+<% @title = "The page you were looking for doesn't exist (404)" %>
+
+<div class="error-wrapper flex">
+  <div class="error-content flex">
+    <div class="error-message">
+      <div class="flex content-space-between">
+        <h1 class="error-shock"><%= t('error-page.attributes.oops') %></h1>
+        <h1 class="error-title"><%= t('error-page.not-found.not-exist') %></h1>
+      </div>
+      <h3 class="error-description"><%= t('error-page.attributes.sent-back') %></h3>
+
+     <%= link_to "#{t "error-page.attributes.back"}", root_path, class: "btn btn-primary error-link" %>
+    </div>
+    <div class="error-img">
+      <%= image_tag 'cry.jpeg' %>
+    </div>
+  </div>
+</div>

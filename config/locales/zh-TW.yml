@@ -66,6 +66,16 @@ zh-TW:
     new-user: 成功新增用戶
     not-admin: 您沒有管理者權限
     last-admin: 至少要保留一個管理者
+  error-page:
+    attributes:
+      oops: 喔不！
+      back: 回到任務
+      sent-back: 別擔心，我們帶你回去
+    not-found:
+      not-exist: 這個頁面不存在
+    internal-server-error:
+      went-wrong: 有什麼地方出錯了
+
 
 
 
