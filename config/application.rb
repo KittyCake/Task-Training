@@ -15,6 +15,9 @@ module TaskTraining
     config.time_zone = 'Taipei'
     config.i18n.default_locale = :'zh-TW'
 
+    # error pages
+    config.exceptions_app = self.routes
+
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading
