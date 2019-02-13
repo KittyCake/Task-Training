@@ -65,6 +65,7 @@ zh-TW:
     false-login: 名稱或密碼不正確
     new-user: 成功新增用戶
     not-admin: 您沒有管理者權限
+    last-admin: 至少要保留一個管理者
 
 
 

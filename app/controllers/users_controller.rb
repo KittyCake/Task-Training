@@ -38,8 +38,13 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    @user.destroy!
-    flash[:notice] = "#{t "messages.done-delete"} #{@user.name}"
+    if @user.destroy
+      flash[:notice] = "#{t "messages.done-delete"} #{@user.name}"
+    else
+      flash[:notice] = "#{t "messages.last-admin"}"
+    end
+
+    # @user.save!
     redirect_to users_path
   end
 
