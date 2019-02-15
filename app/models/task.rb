@@ -1,6 +1,8 @@
 class Task < ApplicationRecord
   belongs_to :user
   paginates_per 10
+  acts_as_taggable_on :tags
+
   STATUSES = %w(待處理 進行中 完成)
   PRIORITIES = %w(高 中 低)
 

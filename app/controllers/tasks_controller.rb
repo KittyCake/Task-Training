@@ -1,18 +1,23 @@
 class TasksController < ApplicationController
   helper_method :sort_column, :sort_direction
   before_action :set_task, only: [ :edit, :update, :destroy]
+  before_action :current_tasks, only: [ :index ]
   def index
     # @tasks = Task.all.order('created_at DESC')
     # byebug
     if current_user.nil?
       redirect_to login_path
+    elsif params[:tags]
+      @tasks = @tasks.tagged_with(params[:tags]).page(params[:page])
     elsif params[:search]
-      @tasks = User.find(current_user.id).tasks.where("LOWER(title) LIKE LOWER('%#{params[:search]}%') OR LOWER(content) LIKE LOWER('%#{params[:search]}%')").page(params[:page])
+      # @tasks = @tasks.tagged_with(params[:search]).page(params[:page])
+      @tasks = @tasks.where("LOWER(title) LIKE LOWER('%#{params[:search]}%') OR LOWER(content) LIKE LOWER('%#{params[:search]}%')").page(params[:page])
+      # byebug
     elsif params[:task]
-      @tasks = User.find(current_user.id).tasks.where(status: params[:task][:status]).page(params[:page])
+      @tasks = @tasks.where(status: params[:task][:status]).page(params[:page])
       # byebug
     else
-      @tasks = User.find(current_user.id).tasks.all.order(sort_column + ' ' + sort_direction).page(params[:page])
+      @tasks = @tasks.all.order(sort_column + ' ' + sort_direction).page(params[:page])
     end
   end
 
@@ -55,8 +60,12 @@ class TasksController < ApplicationController
     @task = Task.find(params[:id])
   end
 
+  def current_tasks
+    @tasks = User.find(current_user.id).tasks
+  end
+
   def task_params
-    params.require(:task).permit(:title, :content, :priority, :endtime, :status, :tags, :search)
+    params.require(:task).permit(:title, :content, :priority, :endtime, :status, :tags, :search, :tag_list)
   end
 
   def sort_column

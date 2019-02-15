@@ -18,6 +18,8 @@ gem "rails-i18n"
 gem 'kaminari'
 # flash message
 gem 'toastr-rails'
+# tags
+gem 'acts-as-taggable-on', '~> 6.0'
 
 
 # Use Puma as the app server
