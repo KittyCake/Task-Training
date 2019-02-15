@@ -40,6 +40,7 @@ zh-TW:
         endtime: 結束時間
         status: 狀態
         tags: 標籤
+        tag_list: 標籤
         user: 用戶
         created_at: 創建時間
     errors:
