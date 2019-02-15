@@ -19,6 +19,8 @@ zh-TW:
     search: 搜尋
     filter: 篩選
     check: 查看
+    placeholder-search: 以標題/內容搜尋
+    placeholder-tags: 以標籤搜尋
     filter-status: 選擇狀態
     tasks-count: 任務數量
   activerecord:
