@@ -23,6 +23,13 @@ zh-TW:
     placeholder-tags: 以標籤搜尋
     filter-status: 選擇狀態
     tasks-count: 任務數量
+  views:
+      pagination:
+        first: "&laquo; 首頁"
+        last: 尾頁 &raquo;
+        next: 下一頁 &rsaquo;
+        previous: "&lsaquo; 上一頁"
+        truncate: "&hellip;"
   activerecord:
     models:
       user: 用戶
